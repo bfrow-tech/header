@@ -109,14 +109,16 @@ You can select one of three levels for heading.
 | Field | Type     | Description                                      |
 | ----- | -------- | ------------------------------------------------ |
 | text  | `string` | header's text                                    |
-| level | `number` | level of header: 1 for H1, 2 for H2 ... 6 for H6 |
+| level | `number` | level of header: 1 for H1, 2 for H2 ... 3 for H3 |
+| align | `string` | align:left,right,center                          |
 
 ```json
 {
   "type": "header",
   "data": {
     "text": "Why Telegram is the best messenger",
-    "level": 2
+    "level": 2,
+    "align": "left",
   }
 }
 ```
