@@ -45,7 +45,7 @@ class Header {
       settingsButton: this.api.styles.settingsButton,
       settingsButtonActive: this.api.styles.settingsButtonActive,
       wrapper: 'ce-header',
-      align: 'left',
+      align: data.align || 'left',
     };
 
     /**
