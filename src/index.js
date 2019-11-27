@@ -568,7 +568,7 @@ class Header {
    */
   static get toolbox() {
     return {
-      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="6 4 14 16" fill="none"><path d="M6.99854 4H9.99854V19H6.99854V4Z" fill="currentColor"/><path d="M15.9985 4H18.9985V19H15.9985V4Z" fill="currentColor"/><path d="M6.99854 13L6.99854 10L18.9985 10V13L6.99854 13Z" fill="currentColor"/></svg>',
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="1 -0.5 24 24" fill="none"><path d="M6.99854 4H9.99854V19H6.99854V4Z" fill="currentColor"/><path d="M15.9985 4H18.9985V19H15.9985V4Z" fill="currentColor"/><path d="M6.99854 13L6.99854 10L18.9985 10V13L6.99854 13Z" fill="currentColor"/></svg>',
       title: 'Header'
     };
   }
