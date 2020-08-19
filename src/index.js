@@ -248,7 +248,6 @@ class Header {
    * @public
    */
   merge(data) {
-    console.log('merge', data)
     let newData = {
       text: this.data.text + data.text,
       level: this.data.level,
