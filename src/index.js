@@ -475,18 +475,18 @@ class Header {
       {
         number: 1,
         tag: 'H1',
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 13 11" fill="none"><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="black"/><path d="M6.75 0H9V11H6.75V0Z" fill="black"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="black"/><path d="M11.5 11H13V5H10V6.2H11.5V11Z" fill="black"/></svg>'
+        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 13 11" fill="none"><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="currentColor"/><path d="M6.75 0H9V11H6.75V0Z" fill="currentColor"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="currentColor"/><path d="M11.5 11H13V5H10V6.2H11.5V11Z" fill="currentColor"/></svg>'
       },
 
       {
         number: 2,
         tag: 'H2',
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="17" viewBox="0 0 14 11" fill="none"><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="black"/><path d="M6.75 0H9V11H6.75V0Z" fill="black"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="black"/><path d="M14 9.8H11.3333V8.6H12.6667C13.4 8.6 14 8.066 14 7.4V6.2C14 5.534 13.4 5 12.6667 5H10V6.2H12.6667V7.4H11.3333C10.6 7.4 10 7.934 10 8.6V11H14V9.8Z" fill="black"/></svg>'
+        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="17" viewBox="0 0 14 11" fill="none"><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="currentColor"/><path d="M6.75 0H9V11H6.75V0Z" fill="currentColor"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="currentColor"/><path d="M14 9.8H11.3333V8.6H12.6667C13.4 8.6 14 8.066 14 7.4V6.2C14 5.534 13.4 5 12.6667 5H10V6.2H12.6667V7.4H11.3333C10.6 7.4 10 7.934 10 8.6V11H14V9.8Z" fill="currentColor"/></svg>'
       },
       {
         number: 3,
         tag: 'H3',
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="17" viewBox="0 0 14 11" fill="none"><path d="M14 9.8V8.9C14 8.402 13.5533 8 13 8C13.5533 8 14 7.598 14 7.1V6.2C14 5.534 13.4 5 12.6667 5H10V6.2H12.6667V7.4H11.3333V8.6H12.6667V9.8H10V11H12.6667C13.4 11 14 10.466 14 9.8Z" fill="black"/><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="black"/><path d="M6.75 0H9V11H6.75V0Z" fill="black"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="black"/></svg>'
+        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="17" viewBox="0 0 14 11" fill="none"><path d="M14 9.8V8.9C14 8.402 13.5533 8 13 8C13.5533 8 14 7.598 14 7.1V6.2C14 5.534 13.4 5 12.6667 5H10V6.2H12.6667V7.4H11.3333V8.6H12.6667V9.8H10V11H12.6667C13.4 11 14 10.466 14 9.8Z" fill="currentColor"/><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="currentColor"/><path d="M6.75 0H9V11H6.75V0Z" fill="currentColor"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="currentColor"/></svg>'
       },
     ];
   }
