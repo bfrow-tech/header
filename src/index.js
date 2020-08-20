@@ -45,7 +45,6 @@ class Header {
       settingsButton: this.api.styles.settingsButton,
       settingsButtonActive: this.api.styles.settingsButtonActive,
       wrapper: 'ce-header',
-      align: data.align || 'left',
     };
 
     /**
@@ -91,7 +90,6 @@ class Header {
 
     newData.text = data.text || '';
     newData.level = parseInt(data.level) || this.defaultLevel.number;
-    newData.align = data.align || this.defaultAlign.align;
 
     return newData;
   }
@@ -137,56 +135,10 @@ class Header {
       selectTypeButton.dataset.level = level.number;
 
       /**
-       * Add styles align
-       */
-      selectTypeButton.style.textAlign = this._CSS.align;
-
-      /**
        * Set up click handler
        */
       selectTypeButton.addEventListener('click', () => {
         this.setLevel(level.number);
-      });
-
-      /**
-       * Append settings button to holder
-       */
-      holder.appendChild(selectTypeButton);
-
-      /**
-       * Save settings buttons
-       */
-      this.settingsButtons.push(selectTypeButton);
-    });
-
-    /** Add align styles */
-    this.align.forEach( item => {
-      let selectTypeButton = document.createElement('SPAN');
-
-      selectTypeButton.classList.add(this._CSS.settingsButton);
-
-      /**
-       * Highlight current level button
-       */
-      if (this.currentAlign.align === item.align) {
-        selectTypeButton.classList.add(this._CSS.settingsButtonActive);
-      }
-
-      /**
-       * Add SVG icon
-       */
-      selectTypeButton.innerHTML = item.svg;
-
-      /**
-       * Save align to its button
-       */
-      selectTypeButton.dataset.align = item.align;
-
-      /**
-       * Set up click handler
-       */
-      selectTypeButton.addEventListener('click', () => {
-        this.setAlign(item.align);
       });
 
       /**
@@ -210,7 +162,6 @@ class Header {
   setLevel(level) {
     this.data = {
       level: level,
-      align: this.data.align,
       text: this.data.text
     };
 
@@ -219,25 +170,6 @@ class Header {
      */
     this.settingsButtons.forEach(button => {
       if (button.dataset.level) button.classList.toggle(this._CSS.settingsButtonActive, parseInt(button.dataset.level) === level);
-    });
-  }
-
-  /**
-   * Callback for Block's settings buttons
-   * @param level
-   */
-  setAlign(align) {
-    this.data = {
-      align: align,
-      level: this.data.level,
-      text: this.data.text
-    };
-
-    /**
-     * Highlight button by selected align
-     */
-    this.settingsButtons.forEach(button => {
-      if (button.dataset.align) button.classList.toggle(this._CSS.settingsButtonActive, button.dataset.align === align);
     });
   }
 
@@ -251,7 +183,6 @@ class Header {
     let newData = {
       text: this.data.text + data.text,
       level: this.data.level,
-      align: this.data.align
     };
 
     this.data = newData;
@@ -279,7 +210,6 @@ class Header {
     return {
       text: toolsContent.innerHTML,
       level: this.currentLevel.number,
-      align: this.currentAlign.align
     };
   }
 
@@ -299,7 +229,6 @@ class Header {
   static get sanitize() {
     return {
       level: {},
-      align: {}
     };
   }
 
@@ -311,7 +240,6 @@ class Header {
   get data() {
     this._data.text = this._element.innerHTML;
     this._data.level = this.currentLevel.number;
-    this._data.align = this.currentAlign.align;
 
     return this._data;
   }
@@ -342,11 +270,6 @@ class Header {
        * Save Block's content
        */
       newHeader.innerHTML = this._element.innerHTML;
-      /**
-       * Save Block's align
-       */
-      newHeader.style.textAlign = data.align;
-
 
       /**
        * Replace blocks
@@ -391,11 +314,6 @@ class Header {
     tag.classList.add(this._CSS.wrapper);
 
     /**
-     * Add styles align
-     */
-    tag.style.textAlign = this._CSS.align;
-
-    /**
      * Make tag editable
      */
     tag.contentEditable = 'true';
@@ -423,20 +341,6 @@ class Header {
   }
 
   /**
-   * Get current align
-   * @return {level}
-   */
-  get currentAlign() {
-    let align = this.align.find(item => item.align === this._data.align);
-
-    if (!align) {
-      align = this.defaultAlign;
-    }
-
-    return align;
-  }
-
-  /**
    * Return default level
    * @returns {level}
    */
@@ -445,17 +349,6 @@ class Header {
      * Use H2 as default header
      */
     return this.levels[1];
-  }
-
-  /**
-   * Return default align
-   * @returns {align}
-   */
-  get defaultAlign() {
-    /**
-     * Use H2 as default header
-     */
-    return this.align[0];
   }
 
   /**
@@ -472,12 +365,6 @@ class Header {
   get levels() {
     return [
       {
-        number: 1,
-        tag: 'H1',
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 13 11" fill="none"><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="currentColor"/><path d="M6.75 0H9V11H6.75V0Z" fill="currentColor"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="currentColor"/><path d="M11.5 11H13V5H10V6.2H11.5V11Z" fill="currentColor"/></svg>'
-      },
-
-      {
         number: 2,
         tag: 'H2',
         svg: '<svg xmlns="http://www.w3.org/2000/svg" width="17" viewBox="0 0 14 11" fill="none"><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="currentColor"/><path d="M6.75 0H9V11H6.75V0Z" fill="currentColor"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="currentColor"/><path d="M14 9.8H11.3333V8.6H12.6667C13.4 8.6 14 8.066 14 7.4V6.2C14 5.534 13.4 5 12.6667 5H10V6.2H12.6667V7.4H11.3333C10.6 7.4 10 7.934 10 8.6V11H14V9.8Z" fill="currentColor"/></svg>'
@@ -487,26 +374,10 @@ class Header {
         tag: 'H3',
         svg: '<svg xmlns="http://www.w3.org/2000/svg" width="17" viewBox="0 0 14 11" fill="none"><path d="M14 9.8V8.9C14 8.402 13.5533 8 13 8C13.5533 8 14 7.598 14 7.1V6.2C14 5.534 13.4 5 12.6667 5H10V6.2H12.6667V7.4H11.3333V8.6H12.6667V9.8H10V11H12.6667C13.4 11 14 10.466 14 9.8Z" fill="currentColor"/><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="currentColor"/><path d="M6.75 0H9V11H6.75V0Z" fill="currentColor"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="currentColor"/></svg>'
       },
-    ];
-  }
-
-  /**
-   * Available header levels
-   * @return {level[]}
-   */
-  get align() {
-    return [
       {
-        align: 'left',
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 3.75V2.25H15.75V3.75H2.25ZM11.25 5.25H2.25V6.75H11.25V5.25ZM11.25 11.25H2.25V12.75H11.25V11.25ZM15.75 9.75H2.25V8.25H15.75V9.75ZM2.25 15.75H15.75V14.25H2.25V15.75Z" fill="currentColor"/></svg>'
-      },
-      {
-        align: 'center',
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 3.75V2.25H15.75V3.75H2.25ZM5.25 5.25V6.75H12.75V5.25H5.25ZM15.75 9.75H2.25V8.25H15.75V9.75ZM5.25 11.25V12.75H12.75V11.25H5.25ZM2.25 15.75H15.75V14.25H2.25V15.75Z" fill="currentColor"/></svg>'
-      },
-      {
-        align: 'right',
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 3.75V2.25H15.75V3.75H2.25ZM6.75 6.75H15.75V5.25H6.75V6.75ZM15.75 9.75H2.25V8.25H15.75V9.75ZM6.75 12.75H15.75V11.25H6.75V12.75ZM2.25 15.75H15.75V14.25H2.25V15.75Z" fill="currentColor"/></svg>'
+        number: 4,
+        tag: 'H4',
+        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="17" viewBox="0 0 14 11" fill="none"><path d="M9.83506e-08 0H2.25V11H9.83506e-08V0Z" fill="currentColor"/><path d="M6.75 0H9V11H6.75V0Z" fill="currentColor"/><path d="M9.83506e-08 6.6L0 4.4L9 4.4V6.6L9.83506e-08 6.6Z" fill="currentColor"/><path d="M12.6667 11H14V5H12.6667V7.4H11.3333V5H10V8.6H12.6667V11Z" fill="currentColor"/></svg>'
       },
     ];
   }
@@ -524,11 +395,6 @@ class Header {
      * @type {number}
      */
     let level = 2;
-    /**
-     * Define default align value
-     * @type {string}
-     */
-    let align = 'left';
 
     switch (content.tagName) {
       case 'H1':
@@ -542,7 +408,6 @@ class Header {
 
     this.data = {
       level,
-      align,
       text: content.innerHTML
     };
   }
