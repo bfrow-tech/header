@@ -348,7 +348,7 @@ class Header {
     /**
      * Use H2 as default header
      */
-    return this.levels[1];
+    return this.levels[2];
   }
 
   /**
@@ -397,12 +397,15 @@ class Header {
     let level = 2;
 
     switch (content.tagName) {
-      case 'H1':
-        level = 1;
+      case 'H2':
+        level = 2;
         break;
       /** H2 is a default level */
       case 'H3':
         level = 3;
+        break;
+      case 'H4':
+        level = 4;
         break;
     }
 
@@ -420,7 +423,7 @@ class Header {
    */
   static get pasteConfig() {
     return {
-      tags: ['H1', 'H2', 'H3']
+      tags: ['H2', 'H3', 'H4']
     };
   }
 
